@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYCASA Construction Services — Company Profile 2026</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f4f6f8;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 60px 50px 50px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: white;
+            clip-path: ellipse(60% 100% at 50% 100%);
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header .year-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            padding: 60px 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #e67e22;
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #e67e22;
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .value-card {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-top: 3px solid #e67e22;
+        }
+
+        .value-card strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.05em;
+        }
+
+        .value-card span {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services-list li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .services-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .services-list li strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .services-list li span {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .experience-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .experience-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-box li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+
+        .experience-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .contact-section {
+            background: #1a252f;
+            color: white;
+            padding: 40px 50px;
+            margin-top: 40px;
+        }
+
+        .contact-section .section-title {
+            color: white;
+            border-bottom-color: #e67e22;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+        }
+
+        .contact-item strong {
+            color: #e67e22;
+            display: block;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .contact-item span {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 20px;
+            color: #95a5a6;
+            font-size: 0.85em;
+            border-top: 1px solid #eee;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <h1>MYCASA</h1>
+            <div class="subtitle">Construction Services</div>
+            <div class="year-badge">COMPANY PROFILE &nbsp;|&nbsp; 2026</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- Our Story -->
+            <div class="section">
+                <div class="section-title">Our Story</div>
+                <div class="section-subtitle">Built on a Foundation of Thirty Years</div>
+                <p>
+                    Founded on the core principles of <strong>family, integrity, and technical mastery</strong>,
+                    <strong>MYCASA Construction Services</strong> stands as the vital bridge between decades of
+                    veteran experience and modern engineering precision.
+                </p>
+                <p>
+                    Our technical heritage was established in <strong>1996</strong> under the leadership of
+                    <strong>Marcelo Chiong</strong>, Senior Technical Consultant and Electrical Engineer, who brings
+                    <strong>30 years of field-proven expertise</strong> to every project we undertake. Today, MYCASA
+                    is managed by a new generation of siblings — dedicated to upholding Mr. Chiong's legacy of quality
+                    while meeting the advanced standards and expectations that modern clients demand.
+                </p>
+                <div class="highlight-box">
+                    Under the direct technical guidance of Marcelo Chiong, we leverage three decades of specialized
+                    experience in <strong>Technical Project Supervision</strong>. Having led and coordinated multi-trade
+                    teams for 30 years, Mr. Chiong ensures that every stage of work — from electrical systems to final
+                    finishing — is executed exactly according to specifications, with the precision that defines our
+                    reputation.
+                </div>
+            </div>
+
+            <!-- Vision & Mission -->
+            <div class="section">
+                <div class="section-title">Vision</div>
+                <p>
+                    To be the Philippines' most trusted specialty contractor, recognized for transforming complex
+                    technical specifications into flawless, reliable physical results.
+                </p>
+
+                <div class="section-title" style="margin-top: 25px;">Mission</div>
+                <p>
+                    To deliver professional, fully licensed, and high-precision construction services through the
+                    powerful synergy of family integrity and veteran technical oversight. We treat every technical
+                    requirement as a personal promise made to our clients.
+                </p>
+            </div>
+
+            <!-- Core Values -->
+            <div class="section">
+                <div class="section-title">Core Values</div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <strong>Precision</strong>
+                        <span>We follow technical specifications and standards to the letter — no shortcuts, no
+                            compromises.</span>
+                    </div>
+                    <div class="value-card">
+                        <strong>Integrity</strong>
+                        <span>A family name you can trust, built and upheld since 1996.</span>
+                    </div>
+                    <div class="value-card">
+                        <strong>Mentorship</strong>
+                        <span>We pass down 30 years of hands-on mastery and knowledge to every project and every team
+                            member.</span>
+                    </div>
+                    <div class="value-card">
+                        <strong>Accountability</strong>
+                        <span>Fully licensed, professionally managed, and always answerable for the quality of our
+                            work.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commitment -->
+            <div class="section">
+                <div class="section-title">The MYCASA Commitment</div>
+                <div class="section-subtitle">Bridging Generations</div>
+                <p>
+                    At MYCASA, we do not merely complete construction projects — <strong>we preserve and build upon a
+                        legacy of excellence</strong>.
+                </p>
+                <p>
+                    Every project is personally overseen by Marcelo Chiong, ensuring that his 30 years of technical
+                    know-how is directly applied on-site, while being carefully passed down to our next-generation
+                    management team. This ensures that the high standards and rigorous specifications we established
+                    in 1996 remain the foundation of every result we deliver today — combining time-tested expertise
+                    with modern methods.
+                </p>
+            </div>
+
+            <!-- Core Services -->
+            <div class="section">
+                <div class="section-title">Our Core Services</div>
+                <div class="section-subtitle">Expertise Directed by 30 Years of Site Management</div>
+                <ul class="services-list">
+                    <li>
+                        <strong>Specialized Electrical Works</strong>
+                        <span>Our primary specialty. From complete system overhauls to new installations, upgrades, and
+                            maintenance — we ensure every connection and component meets or exceeds national safety and
+                            quality standards.</span>
+                    </li>
+                    <li>
+                        <strong>Architectural Refinishing</strong>
+                        <span>High-grade varnishing, professional repainting, and surface enhancement services designed
+                            to restore, protect, and elevate the aesthetic and value of your property.</span>
+                    </li>
+                    <li>
+                        <strong>Surface & Masonry Restoration</strong>
+                        <span>Precision re-tiling, structural resetting, and masonry repairs. We address structural
+                            shifts, wear, and damage to restore stability, durability, and appearance.</span>
+                    </li>
+                    <li>
+                        <strong>Minor Structural Repairs & Maintenance</strong>
+                        <span>Swift, effective solutions for building upkeep, structural reinforcement, and general
+                            restoration works — keeping your space safe, functional, and well-maintained.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Experience & Heritage -->
+            <div class="section">
+                <div class="section-title">Experience & Heritage</div>
+                <div class="section-subtitle">Three Decades of Project Mastery</div>
+                <p>
+                    While MYCASA represents a modern, forward-moving firm, our leadership and technical team have been
+                    a constant, trusted presence in the construction industry for <strong>30 years</strong>. Since 1996,
+                    under the technical direction of Marcelo Chiong, our work has been deeply rooted in serving
+                    <strong>The Church of Jesus Christ of Latter-day Saints</strong> — acting as a preferred contractor
+                    for their facilities across the region.
+                </p>
+                <div class="experience-box">
+                    <p style="margin-bottom: 15px; text-align: left;"><strong>Projects Successfully Delivered:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Chapels and Meetinghouses</strong> — new construction, expansion, and full
+                            interior/exterior renovation</li>
+                        <li><strong>Seminary and Institute Buildings</strong> — structural upgrades, system
+                            installations, and finishing works</li>
+                        <li><strong>Administrative & Office Facilities</strong> — fit-outs, maintenance, and compliance
+                            upgrades</li>
+                        <li><strong>Auxiliary Properties & Groundworks</strong> — structural repairs, utility upgrades,
+                            and long-term preservation</li>
+                    </ul>
+                </div>
+                <p>
+                    Our long-standing partnership is built on understanding the unique requirements, standards, and
+                    expectations that come with sacred and institutional spaces. We have developed deep expertise in
+                    working within strict guidelines, preserving design integrity, and delivering work that reflects
+                    respect, quality, and durability. Every project carries the same care and precision established in
+                    our very first assignment for the Church in 1996 — a standard we bring to every client today.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <div class="section-title">Contact & Compliance</div>
+            <div style="font-size: 1.1em; margin-bottom: 20px; opacity: 0.9;">Let's Build Your Next Specification</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Official Business Name</strong>
+                    <span>MYCASA Construction Services</span>
+                </div>
+                <div class="contact-item">
+                    <strong>PCAB License Number</strong>
+                    <span>60710</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Contact Person</strong>
+                    <span>Marielle Honey P. Chiong, Project Manager</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone / Viber</strong>
+                    <span>+63 961 960 3912</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Email Address</strong>
+                    <span>honeychiong99@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Office Address</strong>
+                    <span>Lot 48, DNL Subd., Brgy. Libertad, Ormoc City, Leyte 6541</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            © 2026 MYCASA Construction Services. All rights reserved. PCAB License No. 60710.
+        </div>
+    </div>
+</body>
+
+</html>
