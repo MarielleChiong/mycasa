@@ -252,7 +252,189 @@
                 box-shadow: none;
             }
         }
+
+        /* Our People Section Styles */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .people-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            border-top: 4px solid #e67e22;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .people-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .people-card h3 {
+            color: #1a252f;
+            font-size: 1.15em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .people-role {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #e67e22;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .people-card p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.5;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .workers-section {
+            margin-top: 35px;
+        }
+
+        .workers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .worker-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #2c3e50;
+        }
+
+        .worker-item strong {
+            display: block;
+            color: #1a252f;
+            font-size: 1.05em;
+            margin-bottom: 3px;
+        }
+
+        .worker-item .worker-trade {
+            display: block;
+            color: #e67e22;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .worker-item p {
+            font-size: 0.88em;
+            color: #666;
+            margin-bottom: 0;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+
+            .people-grid,
+            .workers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* People Image Placeholders */
+        .people-card {
+            position: relative;
+            padding-top: 0;
+            overflow: hidden;
+        }
+
+        .people-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #e8ecf1 0%, #d1d8e0 100%);
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 -25px 20px;
+            width: calc(100% + 50px);
+            color: #95a5a6;
+            font-size: 0.85em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .people-card .people-role {
+            margin-top: 0;
+        }
+
+        .worker-item {
+            position: relative;
+            padding-top: 0;
+            overflow: hidden;
+        }
+
+        .worker-img-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #e8ecf1 0%, #d1d8e0 100%);
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 -20px 15px;
+            width: calc(100% + 40px);
+            color: #95a5a6;
+            font-size: 0.8em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Certificate Links */
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #e67e22;
+            font-size: 0.82em;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+            padding: 4px 10px;
+            background: #fff8f0;
+            border: 1px solid #f0d9c0;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .cert-link:hover {
+            background: #f0d9c0;
+        }
+
+        .cert-link svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
     </style>
+    <base target="_blank">
     <base target="_blank">
 </head>
 
@@ -415,6 +597,152 @@
                 </p>
             </div>
 
+            <!-- Our People -->
+            <div class="section">
+                <div class="section-title">Our People</div>
+                <div class="section-subtitle">Leadership & Craftsmen Behind Every Project</div>
+                <p style="margin-bottom: 25px;">
+                    MYCASA is more than a company — it is a collective of dedicated professionals and skilled tradesmen
+                    united by a reputation built since 1996. Meet the people who transform your technical specifications
+                    into
+                    reality.
+                </p>
+
+                <!-- Leadership Team -->
+                <div class="people-grid">
+                    <div class="people-card">
+                        <div class="people-img-placeholder">[Photo — Marcelo Chiong]</div>
+                        <!-- <img src="path/to/photo.jpg" alt="Name"
+                             style="width:100%; height:180px; object-fit:cover; border-radius:10px 10px 0 0; margin:0 -25px 20px; width:calc(100% + 50px);"> -->
+                        <div class="people-role">Technical Director & Founder</div>
+                        <h3>Engr. Marcelo M. Chiong</h3>
+                        <p>
+                            Senior Technical Consultant and Licensed Electrical Engineer with <strong>30 years of
+                                field-proven
+                                expertise</strong>.
+                            Former owner of <strong>Ammon Builders</strong>, where he served as a contractor for
+                            <strong>The Church
+                                of Jesus Christ of Latter-day Saints</strong>
+                            on multiple chapel, meetinghouse, and facility projects. Today, as the technical authority
+                            behind
+                            MYCASA, he continues that same legacy —
+                            directly overseeing project supervision to ensure all electrical, structural, and finishing
+                            works are
+                            executed to exact specifications and national safety standards.
+                        </p>
+                    </div>
+                    <div class="people-card">
+                        <img src="images/honey.png" alt="Name" style="width:100%; height:180px; object-fit:cover; border-radius:10px 10px 0 0; 
+                            margin:0 -25px 20px; width:calc(100% + 50px);">
+                        <!-- <div class="people-img-placeholder">[Photo — Marielle Chiong]</div> -->
+                        <div class="people-role">Owner & Project Manager</div>
+                        <h3>Marielle Honey P. Chiong</h3>
+                        <p>
+                            Company Owner and primary client liaison, managing project timelines, compliance
+                            documentation, and team coordination.
+                            Previously served as <strong>Safety Officer</strong> for the <strong>Mission Office project
+                                under TBPJ Construction</strong>,
+                            bringing firsthand site-safety discipline and risk-management rigor to every MYCASA
+                            undertaking.
+                            A BYU Pathway Worldwide student bringing modern business management perspectives to uphold
+                            the family legacy of integrity and precision.
+                        </p>
+                        <a href="certificates/certificates.html#marielle-chiong" target="_blank" class="cert-link"><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>View Certificates & Credentials</a>
+                    </div>
+                    <div class="people-card">
+                        <div class="people-img-placeholder">[Photo — April Chiong]</div>
+                        <div class="people-role">Engineering & Quality Support</div>
+                        <h3>April Pearl P. Chiong</h3>
+                        <p>
+                            <strong>BS Agricultural and Biosystems Engineer</strong>. Oversees technical specifications,
+                            material
+                            standards verification,
+                            and site logistics to ensure every deliverable meets both engineering requirements and
+                            client
+                            expectations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skilled Field Team -->
+                <div class="workers-section">
+                    <div
+                        style="font-size: 1.1em; font-weight: 600; color: #2c3e50; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 2px solid #e67e22; display: inline-block;">
+                        Core Field Team
+                    </div>
+                    <p style="font-size: 0.95em; color: #7f8c8d; margin-bottom: 18px;">
+                        Our permanent skilled crew represents the hands-on capability behind our promises. Each member
+                        has been
+                        selected for proven craftsmanship, reliability, and alignment with MYCASA standards.
+                    </p>
+                    <div class="workers-grid">
+                        <div class="worker-item">
+                            <div class="worker-img-placeholder">[Photo]</div>
+                            <strong>Panfilo Mojado</strong>
+                            <span class="worker-trade">Skilled All-Rounder</span>
+                            <p>Cross-trained in electrical roughing, masonry, and carpentry finishing. The versatile
+                                field veteran
+                                who adapts seamlessly to multi-trade project demands.</p>
+                        </div>
+                        <div class="worker-item">
+                            <div class="worker-img-placeholder">[Photo]</div>
+                            <strong>Warlito Ruiz</strong>
+                            <span class="worker-trade">Multi-Certified Technical Specialist</span>
+                            <p>Certified across plumbing, electrical, refrigeration, air-conditioning, VRF systems, and
+                                pollution control. A
+                                versatile technical asset equipped with NC II and industry seminar credentials for
+                                complex mechanical and
+                                environmental installations.</p>
+                            <a href="certificates/certificates.html#warlito-ruiz-certificates" target="_blank"
+                                class="cert-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>View Certificates</a>
+                        </div>
+                        <div class="worker-item">
+                            <div class="worker-img-placeholder">[Photo]</div>
+                            <strong>Sammy Alcuizar Jr.</strong>
+                            <span class="worker-trade">Skilled Technician</span>
+                            <p>Precision installation and system repair specialist. Trusted for detail-critical
+                                electrical and
+                                maintenance works where consistency and safety are paramount.</p>
+                        </div>
+                        <div class="worker-item">
+                            <div class="worker-img-placeholder">[Photo]</div>
+                            <strong>Charlie Publico</strong>
+                            <span class="worker-trade">Ground Resetting Specialist</span>
+                            <p>Expert in ground resetting and foundational alignment works. Ensures stability, proper
+                                elevation, and
+                                structural base integrity before masonry and flooring scopes begin.</p>
+                        </div>
+                        <div class="worker-item">
+                            <div class="worker-img-placeholder">[Photo]</div>
+                            <strong>Loloy Montesclaros</strong>
+                            <span class="worker-trade">Retiling & Flooring Expert</span>
+                            <p>Master of precision re-tiling, tile layout, and surface restoration. Delivers flawless
+                                finish
+                                integrity, alignment, and durability on every flooring and wall-tile scope.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
 
         <!-- Contact Section -->
@@ -436,7 +764,7 @@
                 </div>
                 <div class="contact-item">
                     <strong>Phone / Viber</strong>
-                    <span>+63 961 960 3912</span>
+                    <span>+63 918 9263 062</span>
                 </div>
                 <div class="contact-item">
                     <strong>Email Address</strong>

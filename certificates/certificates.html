@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYCASA — Certificates & Credentials</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f4f6f8;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 50px 50px 40px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: white;
+            clip-path: ellipse(60% 100% at 50% 100%);
+        }
+
+        .header h1 {
+            font-size: 2.4em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 1em;
+            opacity: 0.85;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: background 0.2s ease;
+        }
+
+        .header .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .header .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Content */
+        .content {
+            padding: 60px 50px 40px;
+        }
+
+        /* Person Section */
+        .person-section {
+            margin-bottom: 50px;
+            page-break-inside: avoid;
+        }
+
+        .person-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e67e22;
+        }
+
+        .person-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8ecf1 0%, #d1d8e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 0.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            border: 3px solid #e67e22;
+        }
+
+        .person-info h2 {
+            font-size: 1.6em;
+            color: #1a252f;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .person-info .person-role {
+            color: #e67e22;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Certificate Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e8ecf1 0%, #d1d8e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #95a5a6;
+            font-size: 0.85em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cert-details {
+            padding: 18px 20px;
+        }
+
+        .cert-details h3 {
+            font-size: 1em;
+            color: #1a252f;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .cert-details .cert-issuer {
+            font-size: 0.85em;
+            color: #e67e22;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .cert-details .cert-date {
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+
+        .cert-details .cert-desc {
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            padding: 25px;
+            color: #95a5a6;
+            font-size: 0.85em;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .person-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    <base target="_blank">
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <h1>Certificates & Credentials</h1>
+            <div class="subtitle">MYCASA Construction Services — Professional Qualifications</div>
+            <a href="../company-profile.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Company Profile
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <!-- PERSON 1: MARIELLE HONEY P. CHIONG -->
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <div class="person-section" id="marielle-chiong">
+                <div class="person-header">
+                    <img src="../images/honey.png" alt="Marielle" class="person-avatar" style="object-fit:cover;">
+                    <div class="person-info">
+                        <h2>Marielle Honey P. Chiong</h2>
+                        <div class="person-role">Owner & Project Manager</div>
+                    </div>
+                </div>
+
+                <div class="cert-grid">
+                    <!-- CERTIFICATE 1: PCAB License -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/yel_PCAB_License.png" alt="PCAB License"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>PCAB Regular Contractor's License</h3>
+                            <div class="cert-issuer">Philippine Contractors Accreditation Board (PCAB) — DTI / CIAP
+                            </div>
+                            <div class="cert-date">Issued January 02, 2026 | Valid until January 02, 2027 | License No.
+                                60710</div>
+                            <div class="cert-desc">Official contractor registration as Sole Proprietorship under
+                                Specialty-Trade Category E, authorizing MYCASA Construction Services to engage in
+                                construction contracting business in the Philippines.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 2: 40-Hour COSH -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/yel_COSH40hr.png" alt="COSH Training"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>40-Hour Construction Occupational Safety & Health (COSH) with Training of Trainers</h3>
+                            <div class="cert-issuer">J3 Trainers & Consultants Inc. — DOLE Accredited</div>
+                            <div class="cert-date">August 15, 2024 | Certificate No. J3-24-102-26481</div>
+                            <div class="cert-desc">Comprehensive OSH training in accordance with RA 11058 (OSH Law),
+                                covering hazard identification, risk assessment, emergency response, and trainer-level
+                                OSH compliance for construction site management.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 3: AMO Training -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/yel_AMO.png" alt="AMO Training"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>AMO Orientation Webinar — Accredited Managing Officer</h3>
+                            <div class="cert-issuer">Philippine Institute of Civil Engineers (PICE) Makati Chapter —
+                                Accredited by CIAP, PCAB & CMDF</div>
+                            <div class="cert-date">September 12–13, 2024</div>
+                            <div class="cert-desc">Management-level certification for contractor operations, project
+                                administration, financial accountability, and regulatory compliance under PCAB
+                                standards. Recognized by the Construction Industry Authority of the Philippines.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 4: Web & Computer Programming -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/yel_WebProg.jpg" alt="Web & Programming Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>Web and Computer Programming</h3>
+                            <div class="cert-issuer">Brigham Young University–Idaho (BYU–Idaho)</div>
+                            <div class="cert-date">April 06, 2023</div>
+                            <div class="cert-desc">University certificate covering web development, programming
+                                fundamentals, dynamic webpage design, and modern technology application — supporting
+                                project documentation, client reporting, and technical workflow automation.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <!-- PERSON 2: WARLITO RUIZ -->
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <div class="person-section" id="warlito-ruiz-certificates">
+                <div class="person-header">
+                    <div class="person-avatar">[Photo]</div>
+                    <div class="person-info">
+                        <h2>Warlito Ruiz</h2>
+                        <div class="person-role">Multi-Certified Technical Specialist</div>
+                    </div>
+                </div>
+
+                <div class="cert-grid">
+                    <!-- CERTIFICATE 1: 40-Hour Pollution Control Officer -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_PollCon.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>40-Hour Basic Course for Pollution Control Officers</h3>
+                            <div class="cert-issuer">DENR–EMB & Philippine Center for Environmental Awareness and
+                                Sustainability (PCEAS)</div>
+                            <div class="cert-date">September 24–30, 2025 | Ref. BTPCO-OLT-2025-61</div>
+                            <div class="cert-desc">Comprehensive training on environmental compliance, waste management,
+                                and pollution prevention protocols for construction and industrial sites.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 2: Plumbing NC II -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_PlumbingNCII.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>Plumbing NC II</h3>
+                            <div class="cert-issuer">TESDA — Technical Education and Skills Development Authority</div>
+                            <div class="cert-date">March 10, 2015 | Certificate No. 15070202005548 | Valid until March
+                                10, 2020</div>
+                            <div class="cert-desc">National Certificate in plumbing installation, maintenance, and
+                                repair for residential and commercial piping systems.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 3: VRF Installation & Mitsubishi City Multi -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_VRF.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>VRF Installation Seminar & Service Orientation — Mitsubishi Electric City Multi</h3>
+                            <div class="cert-issuer">AIRE-PRO Air-Conditioning Systems Services (Mitsubishi Electric
+                                Authorized)</div>
+                            <div class="cert-date">July 12, 2023</div>
+                            <div class="cert-desc">Specialized training on Variable Refrigerant Flow system
+                                installation, commissioning, and servicing for large-scale climate control systems.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 4: Refrigeration & Air-Conditioning -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_Ref_Aircon.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>Refrigeration and Air-Conditioning Servicing</h3>
+                            <div class="cert-issuer">Department of Manpower Development and Placement (DMDP) — City of
+                                Cebu</div>
+                            <div class="cert-date">January 2 - March 30, 2012 | Given April 13, 2012</div>
+                            <div class="cert-desc">Competency-based skills training in PACU/CRE installation, electrical
+                                systems, refrigerant recovery, troubleshooting, and system commissioning.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 5: General Electricity -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_GenElec.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>General Electricity Training</h3>
+                            <div class="cert-issuer">Department of Manpower Development and Placement (DMDP) — City of
+                                Cebu | UTPRAS–TESDA Registered</div>
+                            <div class="cert-date">September 26 - December 17, 2005 | Given December 16, 2005</div>
+                            <div class="cert-desc">Competency-based training in electrical safety, switchgear
+                                installation, raceway processing, electric motor operation, industrial motor
+                                controllers, circuit design, and troubleshooting.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 6: Consumer Electronics Servicing -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_ConElecServ.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>Consumer Electronics Servicing</h3>
+                            <div class="cert-issuer">Abellana National School — Cebu City Free Trade Evening Opportunity
+                                Classes | DepEd TESDA NC II</div>
+                            <div class="cert-date">November 2012 - March 21, 2013 | Given March 22, 2013</div>
+                            <div class="cert-desc">Training in assembly, disassembly, and repair of consumer electronic
+                                products and electronically controlled domestic appliances.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 7: Auto Mechanic -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_AutoMech.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>Certificate of Proficiency — Auto Mechanics</h3>
+                            <div class="cert-issuer">Abellana National School — Cebu City Free Trade Evening Opportunity
+                                Classes | DepEd Technical-Vocational Division</div>
+                            <div class="cert-date">Given October 31, 2012</div>
+                            <div class="cert-desc">Special trade course completion in automotive engine repair,
+                                electrical systems, and preventive maintenance for light and heavy-duty vehicles.</div>
+                        </div>
+                    </div>
+
+                    <!-- CERTIFICATE 8: Basic Computer Training -->
+                    <div class="cert-card">
+                        <img src="../images/certificates/war_BasicCom.jpg" alt="Certificate"
+                            style="width:100%; height:200px; object-fit:cover;">
+                        <div class="cert-details">
+                            <h3>Basic Computer Training</h3>
+                            <div class="cert-issuer">Abellana National School — Cebu City Free Trade Evening Opportunity
+                                Classes | TESDA CHS NC II Certified Instructor</div>
+                            <div class="cert-date">June - November 8, 2013 | Given November 8, 2013</div>
+                            <div class="cert-desc">Computer literacy training covering personal computer operation, word
+                                processing, presentation software, and digital documentation for technical reporting.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-note">
+            © 2026 MYCASA Construction Services. All rights reserved. PCAB License No. 60710.
+        </div>
+    </div>
+</body>
+
+</html>
