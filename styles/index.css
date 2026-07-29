@@ -1,0 +1,19 @@
+header {
+    margin: 0;
+    padding: 20px;
+}
+
+li a {
+    text-decoration: none;
+    margin-right: 15px;
+    color: rgb(102, 90, 153);
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+li {
+    margin-right: 10px;
+    list-style-type: none;
+}
